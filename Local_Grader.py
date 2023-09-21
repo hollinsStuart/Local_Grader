@@ -20,7 +20,7 @@ class Output(Enum):
 class Config:
     def __init__(self, mode=Mode.exe, output=Output.TF, test_file_suffix='.as', test_output_suffix='',
                  example_file_suffix='.txt', pre_execute_commands=[], exe_compile_command='', exe_run_command='',
-                 exe_name='assembler', example_compile_command='', example_run_command='',example_name=''):
+                 exe_name='assembler', example_compile_command='', example_run_command='', example_name=''):
         self.mode = Mode.exe
         self.output = Output.TF
         self.test_file_suffix = '.as'
@@ -67,7 +67,17 @@ if __name__ == '__main__':
     if configure.mode == Mode.exe:
         os.system(configure.example_compile_command)
 
-    assemble = './assembler mult.as mult.mc'
-    mult = './zsimulator mult.mc > m.txt'
-    os.system(assemble)
-    os.system(mult)
+    for test in test_files:
+        # run test files
+        assemble = './assembler mult.as mult.mc'
+        mult = './zsimulator mult.mc > m.txt'
+        os.system(assemble)
+        os.system(mult)
+        if configure.output == Output.TF:
+            # diff the results
+            ans_file = 'test_' + test + '_ans.txt'  # test_add_ans.txt
+            correct_file = 'z_' + test + '_ans.txt'
+            diff_result = filecmp.cmp(ans_file, correct_file, shallow=False)
+            print(test, end=': \t')
+            print(diff_result)
+
