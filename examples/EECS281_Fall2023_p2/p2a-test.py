@@ -40,33 +40,14 @@ class Config:
         self.test_output_suffix = ".txt"
         self.example_file_suffix = ".txt"
         self.pre_execute_commands = []
-        self.exe_compile_command = "make all"
+        self.exe_compile_command = "make"
         self.exe_name = ""
         self.example_compile_command = ""
         self.example_name = ""
 
 
 if __name__ == "__main__":
-    # TODO: modify the fields of configure
-    configure = Config(
-        mode=Mode.txt,
-        output=Output.TF,
-        test_file_suffix=".cpp",
-        test_output_suffix=".txt",
-        example_file_suffix=".txt",
-        pre_execute_commands=["make"],
-        exe_compile_command='',
-        exe_run_command="./zombbb",
-        exe_name="zombbb",
-        example_compile_command="",
-        example_run_command="",
-        example_name="",
-    )
-
-    # compile your program
-    for command in configure.pre_execute_commands:
-        subprocess.run(command)
-
+    os.system("make all")
     os.system("./zombbb -vms 100 < Sample-large.txt > large-vms10-ans.txt")
     large_result = filecmp.cmp("large-vms10-ans.txt", "Sample-large-out-vms100.txt", shallow=False)
     print("----------------------------------------")
@@ -87,3 +68,4 @@ if __name__ == "__main__":
     print("spec-vms10: ", end='')
     print(small_result)
     print("----------------------------------------")
+
