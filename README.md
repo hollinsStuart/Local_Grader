@@ -29,3 +29,6 @@ python3 p2a-test.py
 ```
 
 The output files will be `*-ans.txt` in the current directory.
+
+# How does it work?
+
