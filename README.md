@@ -6,6 +6,8 @@ This is a Python program that allows you to run multiple local test cases for yo
 python3 Local_Grader.py
 ```
 
+Also, there are pre-made tests provided that you can run directly without any modification. 
+
 # Prerequisites
 
 ## A ***Python 3*** interpreter in your environment
