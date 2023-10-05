@@ -48,7 +48,7 @@ class Config:
 
 if __name__ == "__main__":
     os.system("make all")
-    os.system("./zombbb -vms 100 < Sample-large.txt > large-vms10-ans.txt")
+    os.system("./zombbb -vms 100 < Sample-large.txt > large-vms100-ans.txt")
     large_result = filecmp.cmp("large-vms100-ans.txt", "Sample-large-out-vms100.txt", shallow=False)
     print("----------------------------------------")
     print("Sample-large-vms100: ", end='')
