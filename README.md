@@ -12,7 +12,7 @@ Also, there are pre-made tests provided that you can run directly without any mo
 
 ## A ***Python 3*** interpreter in your environment
 
-Python 3 in **WSL** is recommended because we are running Linux commands. 
+Python version should be later than 3.11. Not guaranteed to run on earlier versions.
 
 
 
